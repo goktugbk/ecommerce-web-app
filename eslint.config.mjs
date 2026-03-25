@@ -18,7 +18,28 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      "src/generated/**",
+      "**/*.d.ts",
     ],
+    rules: {
+      // global kurallar
+    },
+  },
+  {
+    files: ["**/*.d.ts", "src/generated/**"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-empty-object-type": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-unsafe-function-type": "off",
+      "@typescript-eslint/no-unnecessary-type-constraint": "off",
+    },
+  },
+  {
+    files: ["src/app/api/**/*.ts", "src/app/**/route.ts"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+    },
   },
 ];
 

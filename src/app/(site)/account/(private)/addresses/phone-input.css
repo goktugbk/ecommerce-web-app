@@ -1,0 +1,49 @@
+/* Dış kap: PhoneInput class'ını kendi kapsayıcımız içinde sıfırlıyoruz */
+.phone-input-reset {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Flag butonu */
+.phone-input-reset .PhoneInputCountry {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.5rem; /* gap-2 */
+}
+
+/* Flag butonunun arka planı & border'ı */
+.phone-input-reset .PhoneInputCountrySelect,
+.phone-input-reset .PhoneInputCountryIcon,
+.phone-input-reset .PhoneInputCountry {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Asıl input: bordersız, şeffaf; padding dış kapta */
+.phone-input-reset .PhoneInputInput {
+  flex: 1 1 auto;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 0;                 /* padding dış kapsayıcıda */
+  height: 1.75rem;            /* ~28px, h-10 dış kapla uyumlu */
+  line-height: 1.25rem;
+}
+
+/* Dropdown listesi görünür kalsın */
+.phone-input-reset .PhoneInputCountrySelect:focus {
+  outline: none;
+}
+
+/* Safari/Firefox default'larını temizle */
+.phone-input-reset input::-webkit-outer-spin-button,
+.phone-input-reset input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.phone-input-reset input[type="number"] {
+  -moz-appearance: textfield;
+}

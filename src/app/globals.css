@@ -1,26 +1,90 @@
+/* Tailwind v4 */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* 3rd-party: react-phone-number-input default stilleri (override edeceğiz) */
+@import "react-phone-number-input/style.css";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ---- Base ---- */
+@layer base {
+  html, body {
+    @apply bg-gray-50 text-gray-900 antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Değişkenler */
+:root {
+  --marquee-gap: 3rem;        /* öğeler arası boşluk */
+  --marquee-height: 44px;     /* şerit yüksekliği (36–56px arası ideal) */
+  --marquee-duration: 26s;    /* default hız (bileşenden override edilebilir) */
 }
+
+/* ---- Marquee ---- */
+.marquee {
+  position: relative;
+  overflow: hidden;               /* bar sabit, içerik akıyor */
+  height: var(--marquee-height);  /* görünür yükseklik */
+  line-height: var(--marquee-height);
+}
+
+.marquee__track {
+  position: absolute;
+  inset: 0 auto 0 0;              /* top:0, left:0 */
+  height: 100%;
+  display: block;
+  will-change: transform;
+  animation-name: marquee-slide-full;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.marquee__row {
+  display: flex;
+  align-items: center;            /* dikey ortalama */
+  gap: var(--marquee-gap);
+  white-space: nowrap;
+  height: 100%;
+  width: max-content;             /* içerik kadar genişlik */
+  padding: 0;
+  padding-left: var(--marquee-gap); /* dikişi gizlemek için tampon */
+}
+
+.marquee__item {
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+}
+
+.full-bleed {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%); /* tam ortaya al */
+  width: 100svw;               /* scrollbar hariç viewport */
+  max-width: 100svw;
+}
+
+@keyframes marquee-slide-full {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-100%, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+}
+
+/* ---- react-phone-number-input Tailwind uyumlu override'lar ---- */
+/* Tam bileşen (.PhoneInput) kullanıyorsan: */
+.PhoneInput { width: 100%; }
+
+.PhoneInputCountry {
+  margin-right: 0.5rem; /* Tailwind: mr-2 */
+}
+
+.PhoneInputCountrySelect {
+  /* Varsayılan focus çevresini temizle */
+  outline: none;
+}
+
+.PhoneInputInput {
+  /* Tailwind görünümleri ile örtüştür */
+  @apply w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 focus:ring-black/10;
+}
+
