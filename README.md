@@ -22,6 +22,22 @@ A full-stack e-commerce platform built with Next.js and Prisma.
 
 ---
 
+## 📸 Screenshots   
+
+### 🏠 Homepage
+![Homepage](./screenshots/homepage.png)
+
+### 🛍️ Product Listing
+![Products](./screenshots/products.png)
+
+### 📦 Product Detail
+![Product Detail](./screenshots/product-detail.png)
+
+### ⚙️ Admin Panel
+![Admin Panel](./screenshots/admin.png)
+
+---
+
 ## 🐳 Docker Setup
 
 Run the project using Docker:
@@ -58,5 +74,6 @@ docker-compose up
 Göktuğ Berke Karataş  
 Computer Engineering Student | Full-Stack & AI Developer  
 
-🔗 LinkedIn: https://www.linkedin.com/in/your-linkedin  
+🔗 LinkedIn: https://www.linkedin.com/in/g%C3%B6ktu%C4%9F-berke-karata%C5%9F-88ba113b9/
+
 💻 GitHub: https://github.com/goktugbk
