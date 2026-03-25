@@ -80,5 +80,5 @@ Computer Engineering Student | Full-Stack & AI Developer
 
 ---
 
-##⭐ Support
+## ⭐ Support
 If you like this project, give it a ⭐ on GitHub!
